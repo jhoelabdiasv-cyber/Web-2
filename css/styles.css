@@ -153,13 +153,25 @@ body {
     font-size: 1.02em;
 }
 
-/* Columnas fluidas porcentuales */
+/* Columnas fluidas porcentuales.
+   min-width evita que se compriman demasiado en pantallas angostas:
+   cuando no cabe el ancho minimo de las dos columnas, la segunda
+   cae automaticamente a la siguiente linea y ocupa el 100% disponible. */
 .columna-50 {
     width: 48%;
+    min-width: 280px;
+    float: left;
+    margin-right: 4%;
+    margin-bottom: 20px;
+}
+
+.columna-50 + .columna-50 {
+    margin-right: 0;
 }
 
 .columna-33 {
     width: 31.33%;
+    min-width: 200px;
     margin-right: 2%;
     margin-bottom: 20px;
     float: left;

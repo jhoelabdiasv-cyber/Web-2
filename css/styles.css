@@ -1,0 +1,407 @@
+/* ==========================================================================
+   RESET BÁSICO Y REGLAS GLOBALES (SIN FLEXBOX / SIN GRID / SIN @MEDIA)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.65;
+    color: #dbe2ee;
+    background-color: #090c14;
+}
+
+/* Contenedor fluido proporcional */
+.contenedor {
+    width: 92%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* Clearfix tradicional para floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ==========================================================================
+   ENCABEZADO Y NAVEGACIÓN
+   ========================================================================== */
+.header-principal {
+    background-color: #0d1220;
+    background-image: linear-gradient(180deg, #0d1220 0%, #0a0e19 100%);
+    color: #ffffff;
+    padding: 55px 0 40px 0;
+    text-align: center;
+    border-bottom: 1px solid #1c2740;
+    position: relative;
+}
+
+.header-principal::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(90deg, transparent 0%, #22d3ee 50%, transparent 100%);
+}
+
+.sello-informe {
+    display: inline-block;
+    color: #7fb8c9;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #23405080;
+}
+
+.sitio-titulo {
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.sitio-subtitulo {
+    font-size: 1.08em;
+    color: #7c8aa3;
+    font-weight: 400;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.menu-navegacion {
+    background-color: #0f1526;
+    text-align: center;
+    border-bottom: 1px solid #1c2740;
+}
+
+.menu-navegacion ul {
+    list-style: none;
+}
+
+/* Maquetación horizontal con inline-block (sin Flexbox) */
+.menu-navegacion li {
+    display: inline-block;
+}
+
+.menu-navegacion a {
+    display: block;
+    color: #8b98ac;
+    padding: 16px 19px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.93em;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-navegacion a:hover {
+    color: #22d3ee;
+    border-bottom: 2px solid #22d3ee;
+}
+
+/* ==========================================================================
+   MAQUETACIÓN DE BLOQUES Y COLUMNAS CON FLOAT Y PORCENTAJES
+   ========================================================================== */
+.main-content {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.seccion-bloque {
+    margin-bottom: 32px;
+    background-color: #10182b;
+    padding: 32px;
+    border-radius: 10px;
+    border: 1px solid #1c2740;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.seccion-bloque h2 {
+    color: #ffffff;
+    border-bottom: 1px solid #22314a;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* Pequeño acento de color junto al número del título */
+.seccion-bloque h2::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #22d3ee;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.articulo-card p {
+    margin-bottom: 15px;
+    color: #c3ccdb;
+    font-size: 1.02em;
+}
+
+/* Columnas fluidas porcentuales */
+.columna-50 {
+    width: 48%;
+}
+
+.columna-33 {
+    width: 31.33%;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.galeria-mosaico .columna-33:nth-child(3n) {
+    margin-right: 0;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.card-interna {
+    background-color: #151f36;
+    padding: 22px;
+    border-radius: 8px;
+    border-left: 4px solid #4facfe;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-interna:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-interna h3 {
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-size: 1.15em;
+    font-weight: 700;
+}
+
+.destello-borde {
+    border-left-color: #22d3ee;
+}
+
+.tarjeta-tecnica {
+    background-color: #151f36;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #22314a;
+    margin-top: 10px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta-tecnica:hover {
+    transform: translateY(-3px);
+}
+
+.tarjeta-tecnica h4 {
+    color: #4facfe;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+
+.tarjeta-tecnica.destacado {
+    border-color: #f0533d60;
+    background-color: #1c1526;
+}
+
+.tarjeta-tecnica.destacado:hover {
+    border-color: #f0533d;
+}
+
+.tarjeta-tecnica.destacado h4 {
+    color: #f0533d;
+}
+
+blockquote {
+    background-color: #151f36;
+    border-left: 4px solid #22d3ee;
+    font-style: italic;
+    font-size: 1.06em;
+    color: #dbe2ee;
+    padding: 18px 22px;
+    margin: 22px 0 4px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.lista-opsec {
+    margin-left: 20px;
+    color: #c3ccdb;
+}
+
+.lista-opsec li {
+    margin-bottom: 13px;
+    padding-left: 4px;
+}
+
+.lista-opsec li::marker {
+    color: #22d3ee;
+}
+
+/* ==========================================================================
+   ELEMENTOS MULTIMEDIA (MAX-WIDTH Y REFLOW FLUIDO)
+   ========================================================================== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Iframe fluido 16:9 tradicional */
+.video-contenedor-iframe {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000;
+    border: 1px solid #22314a;
+}
+
+.video-contenedor-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Video local nativo */
+.video-contenedor-nativo {
+    width: 100%;
+    text-align: center;
+}
+
+.video-contenedor-nativo video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #000000;
+    border: 1px solid #22314a;
+}
+
+.caption-texto {
+    font-size: 0.88em;
+    color: #7c8aa3;
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   GALERÍA: IMAGEN DESTACADA + MOSAICO
+   ========================================================================== */
+
+/* Imagen destacada, separada visualmente del resto de la galería */
+.imagen-destacada {
+    width: 100%;
+    margin-bottom: 28px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #22314a;
+    background-color: #000000;
+}
+
+.imagen-destacada img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    transition: transform 0.5s ease;
+}
+
+.imagen-destacada:hover img {
+    transform: scale(1.02);
+}
+
+.destacada-texto {
+    width: 100%;
+    padding: 20px 26px;
+    background-color: #10182b;
+    border-top: 1px solid #22314a;
+}
+
+.destacada-etiqueta {
+    display: block;
+    color: #22d3ee;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.destacada-titulo {
+    display: block;
+    color: #ffffff;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+/* Mosaico del resto de imágenes */
+.galeria-mosaico {
+    margin-top: 4px;
+}
+
+.galeria-mosaico figure {
+    background-color: #151f36;
+    padding: 10px;
+    border: 1px solid #22314a;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.galeria-mosaico figure:hover {
+    border-color: #22d3ee;
+    transform: translateY(-4px);
+}
+
+.galeria-mosaico figure img {
+    transition: transform 0.4s ease;
+}
+
+.galeria-mosaico figure:hover img {
+    transform: scale(1.06);
+}
+
+figcaption {
+    font-size: 0.85em;
+    color: #7c8aa3;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA
+   ========================================================================== */
+.footer-principal {
+    background-color: #0d1220;
+    color: #7c8aa3;
+    text-align: center;
+    padding: 26px 0;
+    margin-top: 10px;
+    border-top: 1px solid #1c2740;
+    font-size: 0.9em;
+}
